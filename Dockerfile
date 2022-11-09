@@ -2,7 +2,7 @@
 
 # Base image with nginx, php-fpm and composer built on debian
 FROM wyveo/nginx-php-fpm:php74 as base
-RUN apt-get update && apt-get install -y wait-for-it libxrender1
+RUN apt-get update && apt-get install -y wait-for-it libxrender1 vim
 
 # Set up code
 WORKDIR /usr/share/nginx/html

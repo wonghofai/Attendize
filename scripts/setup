@@ -2,9 +2,11 @@
 
 # Set up script for the web server,used in both Dockerfiles,
 # while building the Attendize container or installing Attendize in a different environment.
-composer install --no-interaction
+### We should call this in "make setup"
+#composer install --no-interaction
 cp .env.example .env
 chmod -R a+w .env
 chmod -R a+w storage/
 chmod -R a+w bootstrap/cache/
-php artisan key:generate
+### This is double call to "make setup"
+# php artisan key:generate --show

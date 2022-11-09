@@ -26,7 +26,7 @@ services:
       - .:/usr/share/nginx/html
       - .:/var/www
   db:
-    image: mysql:5.7.23
+    image: mysql:latest
     restart: always
     env_file:
       - ./.env

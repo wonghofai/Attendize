@@ -19,7 +19,7 @@ build-apache:
 setup: build
 	cp .env.example .env
 	docker-compose up -d
-	docker-compose exec web sh -c 'wait-for-it db:3306 -t 180 && php artisan key:generate && php artisan migrate'
+	docker-compose exec web sh -c 'composer update && composer install && wait-for-it db:3306 -t 180 && php artisan key:generate --show && php artisan migrate'
 	docker-compose up -d
 	docker-compose exec web sh -c 'wait-for-it web:443 -t 120'
 	open https://localhost:8081/install
